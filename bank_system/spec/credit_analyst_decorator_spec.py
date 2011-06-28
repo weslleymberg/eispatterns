@@ -9,6 +9,7 @@ from bank_system.resources.loan import Loan
 from bank_system.decorators.credit_analyst_decorator import CreditAnalystDecorator
 from bank_system.decorators.bank_account_decorator import BankAccountDecorator
 from bank_system.decorators.employee_decorator import EmployeeDecorator
+from bank_system.decorators.client_decorator import ClientDecorator
 
 
 class CreditAnalystDecoratorSpec(unittest.TestCase):
@@ -17,7 +18,10 @@ class CreditAnalystDecoratorSpec(unittest.TestCase):
         self.a_credit_analyst_decorator = CreditAnalystDecorator('12345-6')
         #test doubles won't work given type checking rules, using classic
         self.a_person = Person()
-        self.an_account = BankAccountDecorator('1234567-8')
+        a_client = Person()
+        a_client_decorator = ClientDecorator()
+        a_client_decorator.decorate(a_client)
+        self.an_account = BankAccountDecorator(a_client, '1234567-8')
 
     def it_decorates_a_person(self):
         #should fail

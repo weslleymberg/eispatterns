@@ -9,6 +9,7 @@ from domain.movement.transportation import Transportation
 from bank_system.decorators.credit_analyst_decorator import CreditAnalystDecorator
 from bank_system.decorators.bank_account_decorator import BankAccountDecorator
 from bank_system.decorators.employee_decorator import EmployeeDecorator
+from bank_system.decorators.client_decorator import ClientDecorator
 from fluidity.machine import StateMachine, state, transition, InvalidTransition
 from extreme_fluidity.xfluidity import StateMachineConfigurator
 from loan_process_template import LoanProcess
@@ -33,7 +34,10 @@ def given_i_am_a_registered_credit_analyst(step):
 @step(u'And an individual customer with account number (.+) asks for a personal loan')
 def and_an_individual_customer_with_account_number_account_number_asks_for_a_personal_loan(step, account_number):
     world.a_machine = Machine()
-    world.account = BankAccountDecorator(account_number)
+    a_client = Person()
+    a_client_decorator = ClientDecorator()
+    a_client_decorator.decorate(a_client)
+    world.account = BankAccountDecorator(a_client, account_number)
     world.account.average_credit = 2501
     world.account.decorate(world.a_machine)
 
