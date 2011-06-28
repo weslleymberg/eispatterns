@@ -11,7 +11,7 @@ from bank_system.decorators.bank_account_decorator import BankAccountDecorator
 from bank_system.decorators.employee_decorator import EmployeeDecorator
 from bank_system.decorators.client_decorator import ClientDecorator
 from fluidity.machine import StateMachine, state, transition, InvalidTransition
-from extreme_fluidity.xfluidity import StateMachineConfigurator
+from xfluidity import StateMachineConfigurator
 from loan_process_template import LoanProcess
 
 
