@@ -26,7 +26,7 @@ class DocumenterSpec(unittest.TestCase):
     def it_gets_decorators_operations(self):
         self.documenter.find_classes(configurator.documenter_imports)
         self.documenter.get_decorators_operations()
-        self.documenter |should| have(3).operations
+        self.documenter |should| have(8).operations
 
     def it_gets_work_items_documentations(self):
         self.documenter.find_classes(configurator.documenter_imports)
