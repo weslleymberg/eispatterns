@@ -27,9 +27,9 @@ class ClientDecorator(Decorator):
             raise AssociationError('Person instance expected, instead % s passed' % type(decorated))
         self.decorated = decorated
         self.decorated.decorators[self.__doc__] = self
+
     @classmethod
     @rule('association')
-
     def rule_should_be_person_instance(self, decorated):
         ''' Decorated object should be a Person '''
         decorated |should| be_instance_of(Person)

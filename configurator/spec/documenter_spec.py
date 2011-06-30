@@ -20,7 +20,7 @@ class DocumenterSpec(unittest.TestCase):
         self.documenter |should| have(2).work_items
         #a imports module
         self.documenter.find_classes(configurator.documenter_imports)
-        self.documenter |should| have(3).decorators
+        self.documenter |should| have(4).decorators
         self.documenter |should| have(2).work_items
 
     def it_gets_decorators_operations(self):

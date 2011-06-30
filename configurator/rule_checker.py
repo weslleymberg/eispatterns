@@ -54,4 +54,3 @@ class RuleChecker:
                         allowable = True
             if allowable:
                 self.allowable_decorators.append(decorator)
-
