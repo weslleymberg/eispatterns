@@ -39,7 +39,7 @@ class DocumenterSpec(unittest.TestCase):
         self.documenter.get_decorators_operations()
         self.documenter.search_term('loan')
         #3 @operations from credit_analyst_decorator, loan_request.__doc__, loan.__doc__
-        self.documenter.found |should| have(5).items
+        self.documenter.found |should| have(6).items
         self.documenter.search_term('xxxx')
         self.documenter.found |should| have(0).item
 
