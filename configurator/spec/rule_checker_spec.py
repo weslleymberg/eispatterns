@@ -23,11 +23,11 @@ class RuleCheckerSpec(unittest.TestCase):
         self.rule_checker.decorators = []
         #it works with configurator.rule_checker_imports, a pure import module
         self.rule_checker.find_decorators(configurator.rule_checker_imports)
-        self.rule_checker |should| have(4).decorators
+        self.rule_checker |should| have(5).decorators
 
     def it_checks_rules(self):
         self.rule_checker.find_decorators(configurator.rule_checker_imports)
         self.rule_checker.check_rules(self.a_person)
         self.rule_checker |should| have(2).allowable_decorators #employee + client
-        self.rule_checker |should| have(3).broken_rules #credit_analyst + bank_account
+        self.rule_checker |should| have(4).broken_rules #credit_analyst + bank_account + attendant
 
