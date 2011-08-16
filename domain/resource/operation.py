@@ -6,11 +6,11 @@ operation is a Python Decorator which is applied to Node/Person and Node/Machine
 
 def operation(**attributes):
     def add_attributes(method):
+        if method.__doc__ == None:
+            raise ValueError('Operation must have a docstring')
         #add attributes to the method
         for attr in attributes:
             setattr(method, attr, attributes[attr])
-        if method.__doc__ == None:
-            raise ValueError('Operation must have a docstring')
         return method
     return add_attributes
 

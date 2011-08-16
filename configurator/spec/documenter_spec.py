@@ -26,7 +26,11 @@ class DocumenterSpec(unittest.TestCase):
     def it_gets_decorators_operations(self):
         self.documenter.find_classes(configurator.documenter_imports)
         self.documenter.get_decorators_operations()
+<<<<<<< HEAD
         self.documenter |should| have(8).operations
+=======
+        self.documenter |should| have(6).operations
+>>>>>>> cb5b2b83d411acb1e9fa7f289880d67621a0bc2e
 
     def it_gets_work_items_documentations(self):
         self.documenter.find_classes(configurator.documenter_imports)
@@ -38,7 +42,11 @@ class DocumenterSpec(unittest.TestCase):
         self.documenter.get_work_items_documentations()
         self.documenter.get_decorators_operations()
         self.documenter.search_term('loan')
+<<<<<<< HEAD
         #3 @operations from credit_analyst_decorator, loan_request.__doc__, loan.__doc__
+=======
+        #4 @operations from credit_analyst_decorator, loan_request.__doc__, loan.__doc__
+>>>>>>> cb5b2b83d411acb1e9fa7f289880d67621a0bc2e
         self.documenter.found |should| have(6).items
         self.documenter.search_term('xxxx')
         self.documenter.found |should| have(0).item
