@@ -23,3 +23,10 @@ class CoreRules(object):
         except ShouldNotSatisfied: return False
         else: return True
 
+    @rule('association')
+    def should_have_client_decorator(self, associated):
+        '''Associated object should be previously decorated by Client'''
+        from bank_system.decorators.client_decorator import ClientDecorator
+        try: associated |should| be_decorated_by(ClientDecorator)
+        except ShouldNotSatisfied: return False
+        else: return True

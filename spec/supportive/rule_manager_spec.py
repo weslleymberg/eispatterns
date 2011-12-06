@@ -2,15 +2,18 @@ import unittest
 from should_dsl import should
 from domain.supportive.rule_manager import RuleManager
 from domain.node.person import Person
+from domain.node.machine import Machine
 from domain.base.decorator import Decorator
 
 
 class SomeDecorator(Decorator):
     '''Some Decorator'''
     decoration_rules = ['should_be_instance_of_person']
+    attribute_rules = [('some_attrib', 'should_be_instance_of_person')]
 
     def __init__(self):
         Decorator.__init__(self)
+        self.some_attrib = None
 
 class RuleManagerSpec(unittest.TestCase):
 

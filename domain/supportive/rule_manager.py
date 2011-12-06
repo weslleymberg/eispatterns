@@ -1,6 +1,7 @@
 from should_dsl import should, ShouldNotSatisfied
 from domain.supportive.rule import rule
 from domain.supportive.core_rules import CoreRules
+import inspect
 
 
 class RuleManager(object):
@@ -70,7 +71,7 @@ class RuleManager(object):
 
     #
     #Really ugly stuff:
-    #the rules below should me managed by BankSystemRuleManager
+    #the rules below should be managed by BankSystemRuleManager
     #when dynamic loading is ready they will leave this class
     #
     @rule('association')
@@ -105,4 +106,3 @@ class RuleManager(object):
         try: associated |should| be_decorated_by(EmployeeDecorator)
         except ShouldNotSatisfied: return False
         else: return True
-
